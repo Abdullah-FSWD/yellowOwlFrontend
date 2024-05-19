@@ -4,7 +4,7 @@ import React from "react";
 const Sidebar = ({ isOpen }) => {
   return (
     <div
-      className={`bg-gradient-to-r from-blue-700 to-purple-700 p-4 flex flex-col w-1/5 h-screen  ${
+      className={`bg-gradient-to-r from-blue-700 to-purple-700 p-4 flex flex-col w-1/5   ${
         isOpen ? "" : "hidden"
       } lg:flex`}>
       <div className="flex  gap-6 items-center">

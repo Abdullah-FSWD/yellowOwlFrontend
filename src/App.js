@@ -33,7 +33,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen w-110 sm:w-screen">
+    <div className="flex h-screen w-110 sm:w-full">
       <Sidebar />
       <div className="flex flex-col w-full bg-gray-300 h-110">
         <Navbar />
