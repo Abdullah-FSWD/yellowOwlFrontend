@@ -34,17 +34,17 @@ const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
     <div className="flex flex-col">
       <div className="flex justify-between items-center p-4">
         <h2 className="text-3xl font-semibold text-gray-700">Students</h2>
-        <div className="flex space-x-4">
+        <div className="block space-x-4 sm:flex">
           <input
             type="text"
             placeholder="Search"
-            className="border border-gray-300 rounded px-12 py-2"
+            className="border  border-gray-300 rounded px-5 py-2  sm:px-12 sm:py-2"
           />
           <button
             onClick={() => {
               setIsPopupOpen(true);
             }}
-            className={`bg-green-500 text-white px-12 py-2 rounded ${
+            className={`bg-green-500 mt-2 w-full text-white px-12 py-2 rounded sm:w-full ${
               isOpen ? "" : "hidden"
             } md:flex`}>
             Add Student
@@ -54,17 +54,13 @@ const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
               onClick={() => {
                 setIsPopupOpen(true);
               }}
-              className="bg-green-500 text-white px-12 py-2 rounded">
+              className="bg-green-500 text-white px-12 py-2 rounded mt-2 ml-6">
               Add
             </button>
           </div>
         </div>
       </div>
-      <div
-        className="mt-4 m-auto bg-white rounded-xl p-2"
-        style={{
-          width: "94%",
-        }}>
+      <div className="mt-4 m-auto bg-white rounded-xl p-2 w-94 mr-0 sm:m-auto">
         <table className="w-full border-collapse border-b-2">
           <thead>
             <tr className="text-xs text-gray-500">
@@ -108,7 +104,6 @@ const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
           onSubmit={onUpdate}
         />
       )}
-      
     </div>
   );
 };

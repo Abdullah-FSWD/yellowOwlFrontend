@@ -6,12 +6,10 @@ import Students from "./component/Students";
 import { getData } from "./component/services/services";
 
 const App = () => {
-
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState({});
 
   // Fetch students data from API
- 
 
   // Function to delete student
   const deleteStudent = async (id) => {
@@ -35,9 +33,9 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen w-110 sm:w-screen">
       <Sidebar />
-      <div className="flex flex-col w-full bg-gray-300">
+      <div className="flex flex-col w-full bg-gray-300 h-110">
         <Navbar />
         <Students
           onDelete={deleteStudent}
