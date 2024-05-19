@@ -23,7 +23,7 @@ export const DeleteConfirmationPopup = ({
     <>
       <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
         <div className="bg-white p-20 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Edit Student</h2>
+          <h2 className="text-2xl font-semibold mb-4"></h2>
           <div className="flex flex-col space-y-4">
             <div>
               <h2 className="text-2xl font-semibold mb-4">
