@@ -26,10 +26,9 @@ const StudentFormPopup = ({ onClose, onSubmit, student, fetchData }) => {
   };
 
   const addStudent = async () => {
-    
     try {
       const response = await axios.post(
-        "http://localhost:8000/students/addStudent",
+        "https://yellowowlbackend-obv0.onrender.com/students/addStudent",
         formData
       );
       fetchData();
