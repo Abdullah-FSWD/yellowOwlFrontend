@@ -13,7 +13,9 @@ const App = () => {
   useEffect(() => {
     // Fetch data from API and set students state
     const getData = async () => {
-      const res = await fetch("http://localhost:8000/students");
+      const res = await fetch(
+        "https://yellowowlbackend-obv0.onrender.com/students"
+      );
       const data = await res.json();
       console.log(data);
       setStudents(data);
