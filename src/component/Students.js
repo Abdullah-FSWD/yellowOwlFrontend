@@ -1,11 +1,24 @@
 // Students.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudentTableRow from "./StudentTableRow";
 import StudentFormPopup from "./StudentFormPopup";
+import axios from "axios";
+import { getData } from "./services/services";
+import { DeleteConfirmationPopup } from "./DeleteConfirmationPopup";
 
-const Students = ({ students, onDelete, onUpdate, onEdit, isOpen }) => {
+const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await getData();
+    setStudents(data);
+  };
 
   const handleEdit = (student) => {
     setSelectedStudent(student);
@@ -28,13 +41,20 @@ const Students = ({ students, onDelete, onUpdate, onEdit, isOpen }) => {
             className="border border-gray-300 rounded px-12 py-2"
           />
           <button
+            onClick={() => {
+              setIsPopupOpen(true);
+            }}
             className={`bg-green-500 text-white px-12 py-2 rounded ${
               isOpen ? "" : "hidden"
             } md:flex`}>
             Add Student
           </button>
           <div className="block md:hidden">
-            <button className="bg-green-500 text-white px-12 py-2 rounded">
+            <button
+              onClick={() => {
+                setIsPopupOpen(true);
+              }}
+              className="bg-green-500 text-white px-12 py-2 rounded">
               Add
             </button>
           </div>
@@ -64,24 +84,31 @@ const Students = ({ students, onDelete, onUpdate, onEdit, isOpen }) => {
           </thead>
 
           <tbody>
-            {students.map((student) => (
-              <StudentTableRow
-                key={student.id}
-                student={student}
-                onEdit={() => handleEdit(student)}
-                onDelete={() => onDelete(student.id)}
-              />
-            ))}
+            {students &&
+              students?.map((student) => (
+                <StudentTableRow
+                  key={student._id}
+                  student={student}
+                  setSelectedStudent={setSelectedStudent}
+                  setIsPopupOpen={setIsPopupOpen}
+                  onEdit={() => handleEdit(student)}
+                  onDelete={() => onDelete(student._id)}
+                  setStudents={setStudents}
+                  fetchData={fetchData}
+                />
+              ))}
           </tbody>
         </table>
       </div>
-      {/* {isPopupOpen && (
+      {isPopupOpen && (
         <StudentFormPopup
+          fetchData={fetchData}
           student={selectedStudent}
           onClose={handleClosePopup}
           onSubmit={onUpdate}
         />
-      )} */}
+      )}
+      
     </div>
   );
 };

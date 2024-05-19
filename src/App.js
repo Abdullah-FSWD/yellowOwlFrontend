@@ -3,25 +3,15 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "./component/Sidebar";
 import Navbar from "./component/Navbar";
 import Students from "./component/Students";
+import { getData } from "./component/services/services";
 
 const App = () => {
-  const [students, setStudents] = useState([]);
+
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState({});
 
   // Fetch students data from API
-  useEffect(() => {
-    // Fetch data from API and set students state
-    const getData = async () => {
-      const res = await fetch(
-        "https://yellowowlbackend-obv0.onrender.com/students"
-      );
-      const data = await res.json();
-      console.log(data);
-      setStudents(data);
-    };
-    getData();
-  }, []);
+ 
 
   // Function to delete student
   const deleteStudent = async (id) => {
@@ -50,7 +40,6 @@ const App = () => {
       <div className="flex flex-col w-full bg-gray-300">
         <Navbar />
         <Students
-          students={students}
           onDelete={deleteStudent}
           onUpdate={updateStudent}
           onEdit={openPopup}
