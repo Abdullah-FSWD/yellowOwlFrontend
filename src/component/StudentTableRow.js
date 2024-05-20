@@ -30,7 +30,7 @@ const StudentTableRow = ({
   return (
     <>
       <tr className="border-b-2 text-center">
-        <td className="flex justify-center gap-2.5 mt-2.5 p-2.5">
+        <td className="flex justify-start gap-2.5 mt-2.5 p-2.5 ml-25%">
           <div className="bg-slate-400 w-8 h-8 rounded-full mb-1"></div>
           <div>{student.name}</div>
         </td>
