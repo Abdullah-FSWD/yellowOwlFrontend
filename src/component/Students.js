@@ -1,12 +1,9 @@
-// Students.js
 import React, { useState, useEffect } from "react";
 import StudentTableRow from "./StudentTableRow";
 import StudentFormPopup from "./StudentFormPopup";
-import axios from "axios";
 import { getData } from "./services/services";
-import { DeleteConfirmationPopup } from "./DeleteConfirmationPopup";
 
-const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
+const Students = ({ onDelete, onUpdate, isOpen }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [students, setStudents] = useState([]);
@@ -44,9 +41,9 @@ const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
             onClick={() => {
               setIsPopupOpen(true);
             }}
-            className={`bg-green-500 mt-2 w-full text-white px-12 py-2 rounded sm:w-full ${
-              isOpen ? "" : "hidden"
-            } md:flex`}>
+            className="bg-green-500 mt-2 w-full text-white px-12 py-2 rounded sm:w-full 
+              hidden
+             md:flex">
             Add Student
           </button>
           <div className="block md:hidden">
@@ -66,15 +63,9 @@ const Students = ({ onDelete, onUpdate, onEdit, isOpen }) => {
             <tr className="text-xs text-gray-500">
               <th>NAME</th>
               <th>EMAIL ID</th>
-              <th className={` ${isOpen ? "" : "hidden"} md:table-cell`}>
-                PHONE
-              </th>
-              <th className={` ${isOpen ? "" : "hidden"} md:table-cell`}>
-                ENROLL NUMBER
-              </th>
-              <th className={` ${isOpen ? "" : "hidden"} md:table-cell`}>
-                DATE OF ADMISSION
-              </th>
+              <th className="hidden md:table-cell">PHONE</th>
+              <th className="hidden md:table-cell">ENROLL NUMBER</th>
+              <th className="hidden md:table-cell">DATE OF ADMISSION</th>
               <th> ACTIONS</th>
             </tr>
           </thead>

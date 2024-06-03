@@ -1,4 +1,3 @@
-// StudentTableRow.js
 import React, { useState } from "react";
 import edit from "../assets/edit.svg";
 import deleteItem from "../assets/delete.svg";
@@ -13,19 +12,6 @@ const StudentTableRow = ({
   fetchData,
 }) => {
   const [confirmationPopup, setConfirmationPopup] = useState(false);
-
-  // const handleDelete = async (id) => {
-  //   console.log(id);
-  //   try {
-  //     await axios.delete(
-  //       `https://yellowowlbackend-obv0.onrender.com/students/delete/${id}`
-  //     );
-  //     fetchData();
-  //     console.log("Post deleted:", id);
-  //   } catch (error) {
-  //     console.error("Error deleting post:", error);
-  //   }
-  // };
 
   return (
     <>
